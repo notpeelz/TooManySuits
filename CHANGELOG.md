@@ -1,3 +1,6 @@
+- 2.0.2
+  - Due to UK law I had to replace the imgur link with another image hosting service.
+
 - 2.0.1
   - Removed dependency on InputUtils from manifest.
   - Reduced the sheen of the label when shining a light directly towards it.
