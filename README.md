@@ -2,7 +2,7 @@
 
 A [More Suits](https://thunderstore.io/c/lethal-company/p/x753/More_Suits/) addon that adds pages to the suit rack.
 
-![screenshot](https://i.imgur.com/qMoLq3c.png)
+![screenshot](https://r2.e-z.host/73b83a6e-5101-4059-9426-8abb720d5508/h5avls93.png)
 
 Includes in-world buttons, compatible with
 [LCVR](https://thunderstore.io/c/lethal-company/p/DaXcess/LethalCompanyVR/)
