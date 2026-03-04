@@ -14,9 +14,9 @@ internal class Config
 
     public Config(ConfigFile cfg)
     {
-        const string SectionPagination = "Pagination";
+        const string sectionPagination = "Pagination";
         _configSuitsPerPage = cfg.Bind(
-            section: SectionPagination,
+            section: sectionPagination,
             key: "SuitsPerPage",
             defaultValue: TooManySuits.VanillaSuitsPerPage,
             configDescription: new ConfigDescription(
@@ -25,9 +25,9 @@ internal class Config
             )
         );
 
-        const string SectionUI = "UI";
+        const string sectionUI = "UI";
         _configLabelScale = cfg.Bind(
-            section: SectionUI,
+            section: sectionUI,
             key: "LabelScale",
             defaultValue: 1f,
             configDescription: new ConfigDescription(

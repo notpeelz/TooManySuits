@@ -10,11 +10,11 @@ public class PaginationController : MonoBehaviour
 
     private TextMeshPro _pageTextMesh = null!;
 
-    private GameObject _pageGO = null!;
+    private GameObject _pageGo = null!;
 
-    private GameObject _previousGO = null!;
+    private GameObject _previousGo = null!;
 
-    private GameObject _nextGO = null!;
+    private GameObject _nextGo = null!;
 
     private bool _shouldUpdate;
 
@@ -47,8 +47,8 @@ public class PaginationController : MonoBehaviour
             tmp.enableWordWrapping = false;
             tmp.alignment = TextAlignmentOptions.Center;
             tmp.text = text;
-            tmp.font = TooManySuits.AssetManager.VGA437Font;
-            tmp.fontMaterial = TooManySuits.AssetManager.VGA437Font.material;
+            tmp.font = TooManySuits.AssetManager.Vga437Font;
+            tmp.fontMaterial = TooManySuits.AssetManager.Vga437Font.material;
             tmp.color = new Color(255, 255, 255, 255);
             tmp.outlineColor = new Color32(0, 0, 0, 255);
             tmp.outlineWidth = 0.25f;
@@ -79,43 +79,43 @@ public class PaginationController : MonoBehaviour
 
         var colliderSize = new Vector2(10f, 10f);
 
-        _pageGO = new GameObject("page");
-        _pageGO.transform.SetParent(transform, false);
-        _pageTextMesh = CreateTMP(_pageGO, "Page");
+        _pageGo = new GameObject("page");
+        _pageGo.transform.SetParent(transform, false);
+        _pageTextMesh = CreateTMP(_pageGo, "Page");
 
         {
-            _previousGO = new GameObject("previousButton");
-            var btnTransform = _previousGO.AddComponent<RectTransform>();
+            _previousGo = new GameObject("previousButton");
+            var btnTransform = _previousGo.AddComponent<RectTransform>();
             btnTransform.SetParent(transform, false);
             btnTransform.anchorMax = new Vector2(0, 0.5f);
             btnTransform.anchorMin = new Vector2(0, 0.5f);
-            CreateTMP(_previousGO, "<");
+            CreateTMP(_previousGo, "<");
 
-            var triggerGO = new GameObject("trigger");
-            var triggerTransform = triggerGO.AddComponent<RectTransform>();
+            var triggerGo = new GameObject("trigger");
+            var triggerTransform = triggerGo.AddComponent<RectTransform>();
             triggerTransform.SetParent(btnTransform, false);
-            var collider = triggerGO.AddComponent<BoxCollider>();
+            var collider = triggerGo.AddComponent<BoxCollider>();
             collider.size = colliderSize;
 
-            var trigger = CreateInteractTrigger(triggerGO);
+            var trigger = CreateInteractTrigger(triggerGo);
             trigger.onInteract.AddListener(_ => PreviousPage());
         }
 
         {
-            _nextGO = new GameObject("nextButton");
-            var btnTransform = _nextGO.AddComponent<RectTransform>();
+            _nextGo = new GameObject("nextButton");
+            var btnTransform = _nextGo.AddComponent<RectTransform>();
             btnTransform.SetParent(transform, false);
             btnTransform.anchorMax = new Vector2(1, 0.5f);
             btnTransform.anchorMin = new Vector2(1, 0.5f);
-            CreateTMP(_nextGO, ">");
+            CreateTMP(_nextGo, ">");
 
-            var triggerGO = new GameObject("trigger");
-            var triggerTransform = triggerGO.AddComponent<RectTransform>();
+            var triggerGo = new GameObject("trigger");
+            var triggerTransform = triggerGo.AddComponent<RectTransform>();
             triggerTransform.SetParent(btnTransform, false);
-            var collider = triggerGO.AddComponent<BoxCollider>();
+            var collider = triggerGo.AddComponent<BoxCollider>();
             collider.size = colliderSize;
 
-            var trigger = CreateInteractTrigger(triggerGO);
+            var trigger = CreateInteractTrigger(triggerGo);
             trigger.onInteract.AddListener(_ => NextPage());
         }
     }
@@ -145,7 +145,7 @@ public class PaginationController : MonoBehaviour
 
     private void UpdateSuits()
     {
-        _allSuits = TooManySuits.SuitManager.GetUnlockedSuits().ToArray();
+        _allSuits = SuitManager.GetUnlockedSuits().ToArray();
         PageCount = Mathf.CeilToInt(_allSuits.Length / (float)SuitsPerPage);
 
         if (CurrentPage > PageCount - 1)
@@ -231,19 +231,19 @@ public class PaginationController : MonoBehaviour
 
         var margin = new Vector3(2, 0, 0);
         var outline = new Vector3(0, 1, 0) * _pageTextMesh.outlineWidth;
-        _previousGO.transform.localPosition =
+        _previousGo.transform.localPosition =
             characterInfo[0].topLeft
             - (outline * 2)
             - margin
             + new Vector3(0, characterInfo[0].baseLine, 0);
-        _nextGO.transform.localPosition =
+        _nextGo.transform.localPosition =
             characterInfo[characterCount - 1].topRight
             - (outline * 2)
             + margin
             + new Vector3(0, characterInfo[characterCount - 1].baseLine, 0);
 
-        _previousGO.SetActive(PageCount > 0 && CurrentPage > 0);
-        _nextGO.SetActive(PageCount > 0 && CurrentPage < PageCount - 1);
-        _pageGO.SetActive(PageCount > 0);
+        _previousGo.SetActive(PageCount > 0 && CurrentPage > 0);
+        _nextGo.SetActive(PageCount > 0 && CurrentPage < PageCount - 1);
+        _pageGo.SetActive(PageCount > 0);
     }
 }

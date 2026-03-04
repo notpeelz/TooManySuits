@@ -1,3 +1,8 @@
+- 2.0.3
+  - Updated MoreSuits dependency to latest (1.5.2)
+  - Updated LobbyCompatibility to latest (1.5.1)
+  - Renamed variables for clarity
+
 - 2.0.2
   - Due to UK law I had to replace the imgur link with another image hosting service.
 

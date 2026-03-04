@@ -4,11 +4,9 @@ namespace TooManySuits;
 
 internal class SuitManager
 {
-    public SuitManager() { }
-
     public event Action? SuitsUpdated;
 
-    public IEnumerable<UnlockableSuit> GetUnlockedSuits()
+    public static IEnumerable<UnlockableSuit> GetUnlockedSuits()
     {
         return Resources.FindObjectsOfTypeAll<UnlockableSuit>()
             .OrderBy(suit => suit.syncedSuitID.Value)
