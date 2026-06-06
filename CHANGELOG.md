@@ -1,3 +1,6 @@
+- 2.0.4
+  - Fixed a bug where the pagination label would appear distorted with LCVR.
+
 - 2.0.3
   - Updated MoreSuits dependency to latest (1.5.2)
   - Updated LobbyCompatibility to latest (1.5.1)
